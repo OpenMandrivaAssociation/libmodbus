@@ -1,6 +1,9 @@
 %define Werror_cflags %nil
-%define libname %mklibname modbus
-%define devellibname %mklibname -d modbus
+
+%define major 5
+%define libname %mklibname modbus %major 
+%define devellibname %mklibname -d modbus 
+
 
 
 Name:		libmodbus
