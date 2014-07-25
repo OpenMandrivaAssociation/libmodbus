@@ -1,19 +1,15 @@
-%define Werror_cflags %nil
-
 %define major 5
 %define libname %mklibname modbus %major 
 %define devellibname %mklibname -d modbus 
 
-
-
 Name:		libmodbus
-Version:	3.1.0
+Version:	3.1.1
 Release:	1
 Summary:	A Modbus library
 Group:		System/Libraries
 License:	LGPLv2+
 URL:		http://www.libmodbus.org/
-Source0:	https://github.com/downloads/stephane/libmodbus/libmodbus-%{version}.tar.gz
+Source0:	http://libmodbus.org/releases/%{name}-%{version}.tar.gz
 BuildRequires:	autoconf, automake, libtool, xmlto, asciidoc
 
 %description
@@ -64,8 +60,7 @@ uses the libmodbus library.
 
 %build
 autoreconf -fi
-./configure --prefix=/usr --libdir=%{_libdir}
-#% configure2_5x --disable-silent-rules
+%configure --disable-silent-rules
 %make
 
 %install
@@ -73,10 +68,11 @@ autoreconf -fi
 rm -f %{buildroot}/%{_libdir}/*.la
 
 %files -n %{libname}
-%doc AUTHORS MIGRATION NEWS COPYING* README.rst
+%doc AUTHORS MIGRATION NEWS COPYING*
 %{_libdir}/libmodbus.so.*
 
 %files -n %{devellibname}
+%{_includedir}/libmodbus/
 %{_includedir}/modbus/
 %{_libdir}/pkgconfig/libmodbus.pc
 %{_libdir}/libmodbus.so
