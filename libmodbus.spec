@@ -8,7 +8,7 @@ Release:	1
 Summary:	A Modbus library
 Group:		System/Libraries
 License:	LGPLv2+
-URL:		http://www.libmodbus.org/
+URL:		https://www.libmodbus.org/
 Source0:	http://libmodbus.org/releases/%{name}-%{version}.tar.gz
 BuildRequires:	autoconf, automake, libtool, xmlto, asciidoc
 
